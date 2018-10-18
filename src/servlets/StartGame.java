@@ -38,9 +38,9 @@ public class StartGame extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		if (GameController.getInstance().actionStart()) {
-			//response.
+			response.sendRedirect("Player_view.html");
 		}
-		doGet(request, response);
+		response.sendRedirect("Player_view.html");
 	}
 
 }
