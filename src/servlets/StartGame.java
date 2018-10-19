@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +31,11 @@ public class StartGame extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter writer = response.getWriter();
+		if (GameController.getInstance().actionStart()) {
+			writer.print("Que el juego comience");
+		}
+		writer.print("Todavia no hay suficientes jugadores");
 	}
 
 	/**
@@ -37,10 +43,12 @@ public class StartGame extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		PrintWriter writer = response.getWriter();
 		if (GameController.getInstance().actionStart()) {
-			response.sendRedirect("Player_view.html");
+			writer.print("Que el juego comience");
 		}
-		response.sendRedirect("Player_view.html");
+		writer.print("Todavia no hay suficientes jugadores");
 	}
 
 }
