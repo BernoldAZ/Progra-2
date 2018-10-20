@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import MVCStuff.GameController;
 
+
+
 /**
  * Servlet implementation class StartGame
  */
@@ -31,11 +33,20 @@ public class StartGame extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter();
+		 
 		if (GameController.getInstance().actionStart()) {
-			writer.print("Que el juego comience");
+			writer.write("Que comience el juego");
+			writer.flush();
+
 		}
-		writer.print("Todavia no hay suficientes jugadores");
+		else {
+			writer.write("Todavia no hay suficientes jugadores");
+			writer.flush();			
+		}
+
+
 	}
 
 	/**
@@ -45,10 +56,15 @@ public class StartGame extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter writer = response.getWriter();
+		 
 		if (GameController.getInstance().actionStart()) {
-			writer.print("Que el juego comience");
+			writer.write("Que comience el juego");
+			writer.flush();
+
 		}
-		writer.print("Todavia no hay suficientes jugadores");
+		writer.write("Todavia no hay suficientes jugadores");
+		writer.flush();
+
 	}
 
 }
