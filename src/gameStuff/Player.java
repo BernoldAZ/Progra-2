@@ -11,9 +11,20 @@ public class Player {
 	
 	private String name;
 	private List<Card> hand = new ArrayList<Card>();
+	private String ipAdress;
+
 	
-	public Player(String pName) {
+	public String getIpAdress() {
+		return ipAdress;
+	}
+
+	public void setIpAdress(String ipAdress) {
+		this.ipAdress = ipAdress;
+	}
+	
+	public Player(String pName, String pIpAdress) {
 		setName(pName);
+		ipAdress = pIpAdress;
 		GameController.getInstance().actionAddMe(this);
 	}
 	public boolean isUNO() {

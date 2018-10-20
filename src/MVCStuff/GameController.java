@@ -1,6 +1,7 @@
 package MVCStuff;
 
 import java.util.List;
+import java.util.Stack;
 
 import cardStuff.Card;
 import gameStuff.Player;
@@ -36,7 +37,14 @@ public class GameController {
 	public void actionAddMe(Player player) {
 		GameModel.getInstance().addPlayer(player);
 	}
-	public void updatePlayers(List<Card> graveyard) {}
-	public void updatePlayer(Player player) {}
+	public void updatePlayers(Card lastCard, String messageForAll, List<Integer> sumCardPlayers) {
+		GameView.getInstance().updatePlayers(lastCard,messageForAll,sumCardPlayers);
+	}
+	public void updatePlayer(Player player, String message) {
+		GameView.getInstance().updatePlayer(player,message);
+
+	}
+	
+	
 	
 }

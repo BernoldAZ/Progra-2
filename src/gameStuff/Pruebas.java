@@ -36,12 +36,13 @@ public class Pruebas {
 		
 		
 				
-		Player player1 = new Player("jugador1");
+		Player player1 = new Player("jugador1","2");
 		player1.start();
 		//System.out.println(player1.getHand());
 		@SuppressWarnings("unused")
-		Player player2 = new Player("jugador2");
+		Player player2 = new Player("jugador2","1");
 		player1.start();
+		System.out.println("Si se actualiza");
 		for(Card card:player1.getHand()) {
 			if(card instanceof SimpleCard) {System.out.print(((SimpleCard) card).getNumber()+card.getColor()+" ");
 			}else{System.out.print(card.getClass().getSimpleName()+" ");
