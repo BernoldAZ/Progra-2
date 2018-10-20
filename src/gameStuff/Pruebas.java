@@ -42,6 +42,7 @@ public class Pruebas {
 		@SuppressWarnings("unused")
 		Player player2 = new Player("jugador2");
 		player1.start();
+		System.out.println("Si se actualiza bien");
 		for(Card card:player1.getHand()) {
 			if(card instanceof SimpleCard) {System.out.print(((SimpleCard) card).getNumber()+card.getColor()+" ");
 			}else{System.out.print(card.getClass().getSimpleName()+" ");

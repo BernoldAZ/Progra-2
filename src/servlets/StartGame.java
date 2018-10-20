@@ -33,9 +33,10 @@ public class StartGame extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter writer = response.getWriter();
 		if (GameController.getInstance().actionStart()) {
-			writer.print("Que el juego comience");
+			writer.write("s amigos");
+
 		}
-		writer.print("Todavia no hay suficientes jugadores");
+		writer.write("s jugadores");
 	}
 
 	/**
