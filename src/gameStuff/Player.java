@@ -12,6 +12,7 @@ public class Player {
 	private String name;
 	private List<Card> hand = new ArrayList<Card>();
 	private String ipAdress;
+	private boolean UNO = false;
 
 	
 	public String getIpAdress() {
@@ -36,7 +37,6 @@ public class Player {
 	public void setUNO(boolean pUNO) {
 		UNO = pUNO;
 	}
-	private boolean UNO = false;
 	
 	public String getName() {
 		return name;

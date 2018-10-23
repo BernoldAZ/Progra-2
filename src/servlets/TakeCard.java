@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +43,10 @@ public class TakeCard extends HttpServlet {
 		
 		Player player = GameController.getInstance().SearchPlayerByIP(player_ipAdress);
 		GameController.getInstance().actionTakeCard(player);
+		
+		PrintWriter writer = response.getWriter();
+		writer.write("Recibiste una nueva carta");
+		writer.flush();
 	}
 
 }

@@ -103,7 +103,7 @@ public class GameModel {
 	}
 	
 	public void giveCards(Player player, int cant) {
-		if(player.isUNO()) {
+		if(player.isUNO() == true) {
 			player.setUNO(false); 
 		}
 		for(int cards = 0 ; cards<cant ; cards++) {
