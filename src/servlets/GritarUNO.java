@@ -43,11 +43,16 @@ public class GritarUNO extends HttpServlet {
 		String player_ipAdress = request.getRemoteAddr();
 		
 		Player player = GameController.getInstance().SearchPlayerByIP(player_ipAdress);
+		PrintWriter writer = response.getWriter();
 		
-		 GameController.getInstance().actionUNO(player);
-		 
-		 PrintWriter writer = response.getWriter();
-		writer.write("Gritaste Uno");
+		if (player != null) {
+			GameController.getInstance().actionUNO(player);
+			 
+			
+			writer.write("Gritaste Uno");
+			writer.flush();
+		}
+		writer.write("No se encontro al jugador");
 		writer.flush();
 	}
 

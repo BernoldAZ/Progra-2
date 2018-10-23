@@ -42,10 +42,16 @@ public class TakeCard extends HttpServlet {
 		String player_ipAdress = request.getRemoteAddr();
 		
 		Player player = GameController.getInstance().SearchPlayerByIP(player_ipAdress);
-		GameController.getInstance().actionTakeCard(player);
 		
 		PrintWriter writer = response.getWriter();
-		writer.write("Recibiste una nueva carta");
+		
+		if (player != null) {
+			GameController.getInstance().actionTakeCard(player);
+		
+			writer.write("Recibiste una nueva carta");
+			writer.flush();
+		}
+		writer.write("No se encontro al jugador");
 		writer.flush();
 	}
 
