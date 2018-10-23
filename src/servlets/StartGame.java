@@ -62,8 +62,11 @@ public class StartGame extends HttpServlet {
 			writer.flush();
 
 		}
-		writer.write("Todavia no hay suficientes jugadores");
-		writer.flush();
+		else {
+			writer.write("Todavia no hay suficientes jugadores");
+			writer.flush();			
+		}
+		
 
 	}
 
