@@ -52,5 +52,15 @@ function TakeCard(){
 }
 
 function UNO(){
+	var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var data = xhr.responseText; //Este data es lo que retorna
+ 
+            alert(data);           
+        }
+    }
+    xhr.open('POST', 'GritarUNO', true);
+    xhr.send(null);
 	
 }
