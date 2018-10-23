@@ -52,8 +52,10 @@ public class GritarUNO extends HttpServlet {
 			writer.write("Gritaste Uno");
 			writer.flush();
 		}
-		writer.write("No se encontro al jugador");
-		writer.flush();
+		else {
+			writer.write("No se encontro al jugador");
+			writer.flush();
+		}
 	}
 
 }

@@ -43,7 +43,7 @@ function TakeCard(){
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
  
-            alert(data);           
+            alert(data);          
         }
     }
     xhr.open('POST', 'TakeCard', true);
