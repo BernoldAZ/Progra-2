@@ -9,8 +9,13 @@ function Start(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
-            if (data == "Que comience el juego"){
+            if (data != "Que comience el juego"){
             	BtnStart.style.display = 'none';
+            	
+            	BtnPutCard.style.display = 'block';
+            	BtnTakeCard.style.display = 'block';
+            	BtnUNO.style.display = 'block';
+
             	Update();
             	return;
             }

@@ -10,12 +10,17 @@
 <div id="div1"><h2>Welcome to the best UNO game.</h2></div>
 	<ul id= "">
 		<input id="BtnStart"  type="button" value="Start Game" onClick="Start()">
-
+		<input id="BtnPutCard"  type="button" value="Put Card" onClick="PutCard()">
+		<input id="BtnTakeCard" type="button" value="Take Card" onClick="TakeCard()">
+		<input id="BtnUNO"  type="button" value="Gritar UNO" onClick="UNO()">
 	
 	</ul>
 
 	<script type="text/javascript"> 
-		
+	BtnPutCard.style.display = 'none';
+	BtnTakeCard.style.display = 'none';
+	BtnUNO.style.display = 'none';
+	//setTimeout(function(){ update(); }, 3000);
 	</script>
 </body>
 </html>
