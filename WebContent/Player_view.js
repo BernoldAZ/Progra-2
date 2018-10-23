@@ -48,7 +48,7 @@ function TakeCard(){
     }
     xhr.open('POST', 'TakeCard', true);
     xhr.send(null);
-	
+    Update();
 }
 
 function UNO(){
@@ -62,5 +62,5 @@ function UNO(){
     }
     xhr.open('POST', 'GritarUNO', true);
     xhr.send(null);
-	
+    Update();
 }
