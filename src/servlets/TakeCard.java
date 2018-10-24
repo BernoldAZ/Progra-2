@@ -51,8 +51,10 @@ public class TakeCard extends HttpServlet {
 			writer.write("Recibiste una nueva carta");
 			writer.flush();
 		}
-		writer.write("No se encontro al jugador");
-		writer.flush();
+		else {
+			writer.write("No se encontro al jugador");
+			writer.flush();
+		}
 	}
 
 }
