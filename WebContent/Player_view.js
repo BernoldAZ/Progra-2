@@ -34,8 +34,23 @@ function Update(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
+<<<<<<< HEAD
             var obj = JSON.parse(data);
             alert("Nombre: "+obj.name+"\nCartas: "+obj.hand[0]);          
+=======
+            var content = JSON.parse(data);
+            var hand = content.hand;
+            
+            for(var contador = 0; contador < hand.length; contador++){
+            	var boton = document.createElement("button");
+                boton.type = "button";
+                var t = document.createTextNode(hand[contador].name);
+                boton.appendChild(t);
+                document.body.appendChild(boton);            	
+            }
+            
+            alert(content.hand);          
+>>>>>>> b3b7478162291813424b7ddb59310b84b69e43a1
         }
     }
     xhr.open('POST', 'Update', true);

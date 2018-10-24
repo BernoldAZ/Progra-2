@@ -35,7 +35,7 @@ public class PlayerView {//Esta clase es la que se va a enviar a java script
 	public String convertToJson() {
 
 			Gson json = new Gson();
-			System.out.println(json.toJson(this).toString());
+			//System.out.println(json.toJson(this).toString());
 			return json.toJson(this);
 	}
 	/*

@@ -6,6 +6,7 @@ public class Take4 extends Card implements iActionable{
 
 	public Take4() {
 		super();
+		this.setName("Take 4");
 		// TODO Auto-generated constructor stub
 	}
 

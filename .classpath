@@ -14,6 +14,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Esteban Madrigal/Documents/object-mapper-0.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/usuario/Desktop/TEC/POO/Progra 2/Progra-2/WebContent/WEB-INF/lib/gson-2.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
