@@ -109,6 +109,7 @@ public class GameModel {
 			player.setUNO(false); 
 		}
 		for(int cards = 0 ; cards<cant ; cards++) {
+			setDeck();
 			player.getHand().add(actualDeck.getDeck().get(0));
 			actualDeck.getDeck().remove(0);
 			updatePlayer(player, "Agarraste una carta.");
@@ -179,6 +180,8 @@ public class GameModel {
 	public boolean startGame() {
 		if(players.size() > 1) {
 			setDeck();//COMIENZA EL JUEGO
+			lastCard = actualDeck.getDeck().get(0);
+			actualDeck.getDeck().remove(0);
 			for(Player player:players) {
 				giveCards(player,7);
 			}

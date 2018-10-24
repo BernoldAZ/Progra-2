@@ -38,7 +38,7 @@ function Update(){
             alert(data);          
         }
     }
-    xhr.open('POST', 'PutCard', true);
+    xhr.open('POST', 'Update', true);
     xhr.send(null);
 	
 }
