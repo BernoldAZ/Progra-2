@@ -24,6 +24,7 @@ public class GameModel {
 	private int turnoJugadorActual = 0;
 	private int direccionJuego = 1;
 	
+	
 	public void validateUser(String player_name, String player_ipAdress) {
 		for(PlayerView player:GameView.getInstance().getPlayersView()) {
 			if(player.getIpAdress() != player_ipAdress) {}
@@ -110,6 +111,13 @@ public class GameModel {
 		}
 		for(int cards = 0 ; cards<cant ; cards++) {
 			setDeck();
+			int m = players.indexOf(player);
+			for(int playerRandom = 0; playerRandom<sumCardPlayers.size();playerRandom++) {
+				if(playerRandom == m) {
+					Integer cantCartas = sumCardPlayers.get(playerRandom);
+					cantCartas = player.getHand().size();
+				}
+			}
 			player.getHand().add(actualDeck.getDeck().get(0));
 			actualDeck.getDeck().remove(0);
 			updatePlayer(player, "Agarraste una carta.");
@@ -131,6 +139,13 @@ public class GameModel {
 			updatePlayer(player, "Pusiste una carta.");
 			
 			lastCard = cardInHand;
+			int m = players.indexOf(player);
+			for(int playerRandom = 0; playerRandom<sumCardPlayers.size();playerRandom++) {
+				if(playerRandom == m) {
+					sumCardPlayers.set(playerRandom, player.getHand().size());
+				}
+			}
+			
 			return true;
 		}
 		else if(cardInHand instanceof SimpleCard){//CARTA EN MANO SIMPLE
@@ -141,6 +156,12 @@ public class GameModel {
 				
 				updatePlayers(player.getName()+" ha puesto un "+ ((SimpleCard) cardInHand).getNumber()+" color "+cardInHand.getColor());//ACTUALIZA
 				updatePlayer(player, "Pusiste una carta.");
+				int m = players.indexOf(player);
+				for(int playerRandom = 0; playerRandom<sumCardPlayers.size();playerRandom++) {
+					if(playerRandom == m) {
+						sumCardPlayers.set(playerRandom, player.getHand().size());
+					}
+				}
 				return true;
 
 			}else {
@@ -158,8 +179,13 @@ public class GameModel {
 				
 				updatePlayers(player.getName()+" ha puesto un "+ cardInHand.getClass().getSimpleName());//ACTUALIZA
 				updatePlayer(player,"Pusiste una carta.");
+				int m = players.indexOf(player);
+				for(int playerRandom = 0; playerRandom<sumCardPlayers.size();playerRandom++) {
+					if(playerRandom == m) {
+						sumCardPlayers.set(playerRandom, player.getHand().size());
+					}
+				}
 				return true;
-
 			}else {
 				updatePlayer(player,"Carta incorrecta, intente de nuevo.");
 				return false;
@@ -168,7 +194,7 @@ public class GameModel {
 			}
 		}
 	}
-	public String convertToJson(Player pPlayer) {
+	public String convertToJson(Object pPlayer) {
 
 		Gson json = new Gson();
 		return json.toJson(pPlayer);
@@ -183,6 +209,7 @@ public class GameModel {
 			actualDeck.getDeck().remove(0);
 			for(Player player:players) {
 				giveCards(player,7);
+				sumCardPlayers.add(player.getHand().size());
 			}
 			updatePlayers("El  juego ha empezado.");//ACTUALIZA
 			//updatePlayer(player);

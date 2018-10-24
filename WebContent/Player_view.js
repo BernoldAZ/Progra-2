@@ -34,10 +34,6 @@ function Update(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
-<<<<<<< HEAD
-            var obj = JSON.parse(data);
-            alert("Nombre: "+obj.name+"\nCartas: "+obj.hand[0]);          
-=======
             var content = JSON.parse(data);
             var hand = content.hand;
             
@@ -49,11 +45,24 @@ function Update(){
                 document.body.appendChild(boton);            	
             }
             
-            alert(content.hand);          
->>>>>>> b3b7478162291813424b7ddb59310b84b69e43a1
-        }
+            alert("A jugar "+content.name);         
+            }
     }
     xhr.open('POST', 'Update', true);
+    xhr.send(null);
+	
+}
+function UpdateAll(){
+	var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var data = xhr.responseText; //Este data es lo que retorna
+            var content = JSON.parse(data);
+                       
+            alert(content+", "+content[0]);         
+            }
+    }
+    xhr.open('POST', 'UpdateAll', true);
     xhr.send(null);
 	
 }
@@ -99,5 +108,5 @@ function UNO(){
     }
     xhr.open('POST', 'GritarUNO', true);
     xhr.send(null);
-    Update();
+    UpdateAll()
 }

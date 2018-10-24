@@ -45,31 +45,22 @@
 </style>
 <body bgcolor=black>
 <div  class="title" id="div1" ><h2>Welcome to the best UNO game.</h2></div>
-	<ul id= "">
+	<div id= "">
 		<input id="BtnStart"  type="button" value="Start Game" onClick="Start()">
 		<input id="BtnPutCard"  type="button" value="Put Card" onClick="PutCard()">
 		<input id="BtnTakeCard" type="button" value="Take Card" onClick="TakeCard()">
 		<input id="BtnUNO"  type="button" value="Gritar UNO" onClick="UNO()">
-		<input id="BtnUpdate"  type="button" value="Update" onClick="Update()">
-		
-	 <tr>
-                <td><img src="title_img.png"  class="img"></td>
-    </tr>
-    <table width="100%" border="1">
-  		<tr>
-    		<td>&nbsp;</td>
-   			<td>&nbsp;</td>
-  		</tr>
-  		<tr>
-    		<td>&nbsp;</td>
-    		<td rowspan="2">&nbsp;</td>
-  		</tr>
-  		<tr>
-    		<td>&nbsp;</td>
-  		</tr>
-	</table>
-	</ul>
-
+	</div>	
+	<div>
+                <img src="title_img.png"  class="img">
+                <table class="title" id="nameTable" >
+	   			<tr>
+	     			<th>nickname</th><th>cartas</th>
+	   			</tr>
+	   			</table>
+    </div>
+    
+   	
 	<script type="text/javascript"> 
 	BtnPutCard.style.display = 'none';
 	BtnTakeCard.style.display = 'none';
