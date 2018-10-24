@@ -34,6 +34,10 @@ function Update(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
+<<<<<<< HEAD
+            var obj = JSON.parse(data);
+            alert("Nombre: "+obj.name+"\nCartas: "+obj.hand[0]);          
+=======
             var content = JSON.parse(data);
             var hand = content.hand;
             
@@ -61,6 +65,7 @@ function Update(){
             }
             
             alert(content.hand);          
+>>>>>>> b3b7478162291813424b7ddb59310b84b69e43a1
         }
     }
     xhr.open('POST', 'Update', true);
@@ -77,7 +82,7 @@ function PutCard(){
             alert(data);          
         }
     }
-    xhr.open('POST', 'Update', true);
+    xhr.open('POST', 'PutCard', true);
     xhr.send(null);
     Update();
 
@@ -102,8 +107,9 @@ function UNO(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
- 
-            alert(data);           
+            var obj = JSON.parse(data);
+            
+            alert(obj.name+", "+obj.hand);           
         }
     }
     xhr.open('POST', 'GritarUNO', true);

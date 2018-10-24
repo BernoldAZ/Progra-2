@@ -48,7 +48,6 @@ public class PutCard extends HttpServlet {
 				String[] answers = { "Excelente jugada", "Buena eleccion", "Ya casi ganas", "Una menos", "Te quedan pocas", "Sigue asi" };
 				Random rand = new Random();
 				int  alt = rand.nextInt(6);
-				System.out.println(alt);
 				String msg = answers[alt];
 				writer.write(msg);
 				writer.flush();
@@ -56,9 +55,6 @@ public class PutCard extends HttpServlet {
 				writer.write("Carta invalida, seleccione otra");
 				writer.flush();
 			}
-		
-			writer.write("Recibiste una nueva carta");
-			writer.flush();
 		}
 		else {
 			writer.write("No se encontro al jugador");
