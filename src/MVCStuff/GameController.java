@@ -42,12 +42,10 @@ public class GameController {
 	}
 	public void updatePlayer(Player player, String message) {
 		GameView.getInstance().updatePlayer(player,message);
-
 	}
-	
 	public Player SearchPlayerByIP(String pIP) {
 		for (Player pPlayer : GameModel.getInstance().getPlayers()) {
-			if (pPlayer.getIpAdress() == pIP) {
+			if (pPlayer.getIpAdress().equals(pIP)) {
 				return pPlayer;
 			}
 		}
