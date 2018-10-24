@@ -45,6 +45,15 @@ public class GameController {
 
 	}
 	
+	public Player SearchPlayerByIP(String pIP) {
+		for (Player pPlayer : GameModel.getInstance().getPlayers()) {
+			if (pPlayer.getIpAdress() == pIP) {
+				return pPlayer;
+			}
+		}
+		return null;
+		
+	}
 	
 	
 }
