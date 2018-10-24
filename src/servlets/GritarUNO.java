@@ -46,8 +46,7 @@ public class GritarUNO extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		
 		if (player != null) {
-			player.UNO();
-			//GameController.getInstance().actionUNO(player);
+			GameController.getInstance().actionUNO(player);
 			 
 			writer.write("Gritaste Uno");
 			writer.flush();
