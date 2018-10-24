@@ -6,6 +6,7 @@ public class Reverse extends Card implements iActionable{
 
 	public Reverse() {
 		super();
+		this.setName("Reverse");
 		// TODO Auto-generated constructor stub
 	}
 

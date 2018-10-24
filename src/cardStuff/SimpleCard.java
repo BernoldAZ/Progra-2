@@ -4,6 +4,10 @@ public class SimpleCard extends Card{
 	
 	private int number;
 	
+	public SimpleCard() {
+		this.setName("Simple Card");
+	}
+	
 	public int getNumber() {
 		return number;
 	}

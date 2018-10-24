@@ -6,6 +6,7 @@ public class Jump extends Card implements iActionable{
 
 	public Jump() {
 		super();
+		this.setName("Jump");
 		// TODO Auto-generated constructor stub
 	}
 
