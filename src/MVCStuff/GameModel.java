@@ -171,7 +171,6 @@ public class GameModel {
 	public String convertToJson(Player pPlayer) {
 
 		Gson json = new Gson();
-		System.out.println(json.toJson(pPlayer).toString());
 		return json.toJson(pPlayer);
 	}
 	public void addPlayer(Player player) {
