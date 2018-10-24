@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import com.google.gson.Gson;
+
 import cardStuff.Card;
 import cardStuff.ChangeColor;
 import cardStuff.Deck;
@@ -113,7 +115,7 @@ public class GameModel {
 			updatePlayers(player.getName()+" ha tomado "+cant+" cartas.");
 		}
 	}
-	public void validatePutCard(int posCardInHand,Player player) {
+	public boolean validatePutCard(int posCardInHand,Player player) {
 		Card cardInHand = player.getHand().get(posCardInHand);
 		//CASOS
 		if(cardInHand instanceof ChangeColor || cardInHand instanceof Take4) {//CARTA EN MANO CAMBIA COLOR
@@ -128,6 +130,7 @@ public class GameModel {
 			updatePlayer(player, "Pusiste una carta.");
 			
 			lastCard = cardInHand;
+			return true;
 		}
 		else if(cardInHand instanceof SimpleCard){//CARTA EN MANO SIMPLE
 			if(cardInHand.getColor() == lastCard.getColor() || ((SimpleCard) cardInHand).getNumber() == ((SimpleCard) lastCard).getNumber()) {
@@ -137,8 +140,12 @@ public class GameModel {
 				
 				updatePlayers(player.getName()+" ha puesto un "+ ((SimpleCard) cardInHand).getNumber()+" color "+cardInHand.getColor());//ACTUALIZA
 				updatePlayer(player, "Pusiste una carta.");
+				return true;
+
 			}else {
 				updatePlayer(player, "Carta incorrecta, intente de nuevo.");
+				return false;
+
 				//RETORNA QUE ESA CARTA NO ES VALIDA
 			}
 		}else {//CARTA EN MANO ESPECIAL
@@ -150,11 +157,21 @@ public class GameModel {
 				
 				updatePlayers(player.getName()+" ha puesto un "+ cardInHand.getClass().getSimpleName());//ACTUALIZA
 				updatePlayer(player,"Pusiste una carta.");
+				return true;
+
 			}else {
 				updatePlayer(player,"Carta incorrecta, intente de nuevo.");
+				return false;
+
 				//RETORNA QUE ESA CARTA NO ES VALIDA
 			}
 		}
+	}
+	public String convertToJson(Player pPlayer) {
+
+		Gson json = new Gson();
+		System.out.println(json.toJson(pPlayer).toString());
+		return json.toJson(pPlayer);
 	}
 	public void addPlayer(Player player) {
 		players.add(player);

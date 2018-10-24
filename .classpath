@@ -14,5 +14,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Esteban Madrigal/Documents/object-mapper-0.2.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

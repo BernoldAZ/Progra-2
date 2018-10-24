@@ -15,14 +15,14 @@ import gameStuff.Player;
 /**
  * Servlet implementation class TakeCard
  */
-@WebServlet("/TakeCard")
-public class TakeCard extends HttpServlet {
+@WebServlet("/Update")
+public class Update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TakeCard() {
+    public Update() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,10 +43,10 @@ public class TakeCard extends HttpServlet {
 		Player player = GameController.getInstance().SearchPlayerByIP(player_ipAdress);
 		PrintWriter writer = response.getWriter();
 		if (player != null) {
-			GameController.getInstance().actionTakeCard(player);
 		
-			writer.write("Recibiste una nueva carta");
+			writer.write(GameController.getInstance().convertToJson(player));
 			writer.flush();
+			
 		}
 		else {
 			writer.write("No se encontro al jugador");

@@ -30,6 +30,16 @@ function Start(){
 }
 
 function Update(){
+	var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var data = xhr.responseText; //Este data es lo que retorna
+ 
+            alert(data);          
+        }
+    }
+    xhr.open('POST', 'PutCard', true);
+    xhr.send(null);
 	
 }
 

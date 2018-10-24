@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +16,14 @@ import gameStuff.Player;
 /**
  * Servlet implementation class TakeCard
  */
-@WebServlet("/TakeCard")
-public class TakeCard extends HttpServlet {
+@WebServlet("/PutCard")
+public class PutCard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TakeCard() {
+    public PutCard() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,7 +44,18 @@ public class TakeCard extends HttpServlet {
 		Player player = GameController.getInstance().SearchPlayerByIP(player_ipAdress);
 		PrintWriter writer = response.getWriter();
 		if (player != null) {
-			GameController.getInstance().actionTakeCard(player);
+			if(GameController.getInstance().actionPutCard(1, player)) {
+				String[] answers = { "Excelente jugada", "Buena eleccion", "Ya casi ganas", "Una menos", "Te quedan pocas", "Sigue asi" };
+				Random rand = new Random();
+				int  alt = rand.nextInt(6);
+				System.out.println(alt);
+				String msg = answers[alt];
+				writer.write(msg);
+				writer.flush();
+			}else {
+				writer.write("Carta invalida, seleccione otra");
+				writer.flush();
+			}
 		
 			writer.write("Recibiste una nueva carta");
 			writer.flush();

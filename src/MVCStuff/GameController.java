@@ -21,12 +21,19 @@ public class GameController {
 		}
 		return game;
 	}
+	public String convertToJson(Player pPlayer) {
+		return(GameModel.getInstance().convertToJson(pPlayer));
+	}
 	
 	public void actionUNO(Player player) {
 		GameModel.getInstance().validateUNO(player);
 	}
-	public void actionPutCard(int posCardInHand,Player player) {
-		GameModel.getInstance().validatePutCard(posCardInHand,player);
+	public boolean actionPutCard(int posCardInHand,Player player) {
+		if(GameModel.getInstance().validatePutCard(posCardInHand,player)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	public void actionTakeCard(Player player) {
 		GameModel.getInstance().giveCards(player, 1);

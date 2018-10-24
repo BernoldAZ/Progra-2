@@ -6,14 +6,53 @@
 <script type="text/javascript" src="Player_view.js"> </script>
 <script src="src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
-<div id="div1"><h2>Welcome to the best UNO game.</h2></div>
+
+<style rel="stylesheet" type="text/css">
+    .main {
+        padding: 50px;
+        color: #FFFFFF;
+        font-size: 0.9em;
+        font-family: "Arial";
+        margin: auto;
+        fill: black;
+        width: 30%;
+    }
+    .title {
+    	text-align: center;
+        font-size: 35px;
+        font-family: "Arial";
+        color: #FFFFFF;
+    }
+    .small_margin {
+        text-align: right;
+        padding: 20px;
+    }
+    .img{
+    	display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+    	width: 30%;
+        padding: 20px;
+    }
+    input[type=text] {
+        border: 2px;
+        padding: 7px 10px;
+        border-radius: 4px;
+        font-size: 18px;
+    }
+
+
+</style>
+<body bgcolor=black>
+<div  class="title" id="div1" ><h2>Welcome to the best UNO game.</h2></div>
 	<ul id= "">
 		<input id="BtnStart"  type="button" value="Start Game" onClick="Start()">
 		<input id="BtnPutCard"  type="button" value="Put Card" onClick="PutCard()">
 		<input id="BtnTakeCard" type="button" value="Take Card" onClick="TakeCard()">
 		<input id="BtnUNO"  type="button" value="Gritar UNO" onClick="UNO()">
-	
+	 <tr>
+                <td><img src="title_img.png"  class="img"></td>
+    </tr>
 	</ul>
 
 	<script type="text/javascript"> 
