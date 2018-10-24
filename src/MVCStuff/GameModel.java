@@ -72,6 +72,13 @@ public class GameModel {
 		
 
 	}
+	public List<Integer> getCantCardPerPlayer(){
+		List<Integer> sumCardPlayers = new ArrayList<Integer>();
+		for(Player player:players) {
+			sumCardPlayers.add(player.getHand().size());
+		}
+		return sumCardPlayers;
+	}
 	public List<Player> getPlayers() {
 		return players;
 	}
@@ -211,11 +218,8 @@ public class GameModel {
 				giveCards(player,7);
 				sumCardPlayers.add(player.getHand().size());
 			}
-			updatePlayers("El  juego ha empezado.");//ACTUALIZA
-			//updatePlayer(player);
 			return true;
 		}
-		updatePlayers("No hay suficientes jugadores.");
 		return false;
 	}
 	

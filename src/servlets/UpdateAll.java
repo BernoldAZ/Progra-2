@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import MVCStuff.GameModel;
+import gameStuff.Player;
 
 /**
  * Servlet implementation class TakeCard
@@ -37,10 +38,14 @@ public class UpdateAll extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<Integer> playersCantCards = GameModel.getInstance().sumCardPlayers;
+		List<Integer> playersCantCards = GameModel.getInstance().getCantCardPerPlayer();
+		Object[][] sumCardPlayers = new Object[playersCantCards.size()][2];
+		for(int i = 0;i<playersCantCards.size();i++) {
+			sumCardPlayers[i][0] = GameModel.getInstance().getPlayers().get(i).getName();
+			sumCardPlayers[i][1] = playersCantCards.get(i);
+		}
 		PrintWriter writer = response.getWriter();
-		writer.write(GameModel.getInstance().convertToJson(playersCantCards));
+		writer.write(GameModel.getInstance().convertToJson(sumCardPlayers));
 		writer.flush();
 		
 	}

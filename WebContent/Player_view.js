@@ -69,12 +69,24 @@ function Update(){
 }
 function UpdateAll(){
 	var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
+	xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             var data = xhr.responseText; //Este data es lo que retorna
             var content = JSON.parse(data);
-                       
-            alert(content+", "+content[0]);         
+            var data2 = "";
+            for(var contador = 0; contador < content.length; contador++){
+            	var table = document.getElementById("myTable");
+            	user = content[contador];
+            	nombre = user[0];
+            	cartas = user[1];
+            	var row = table.insertRow(0);
+            	var cell1 = row.insertCell(0);
+            	var cell2 = row.insertCell(1);
+            	cell1.innerHTML = "Nombre: "+ nombre;
+            	cell2.innerHTML = "Cartas: "+ cartas;
+            	data2 = data2+"Nombre: "+nombre+" Cartas: "+cartas+"\n";
+            }
+            alert(data2);         
             }
     }
     xhr.open('POST', 'UpdateAll', true);
