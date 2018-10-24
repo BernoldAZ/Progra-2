@@ -40,9 +40,24 @@ function Update(){
             for(var contador = 0; contador < hand.length; contador++){
             	var boton = document.createElement("button");
                 boton.type = "button";
-                var t = document.createTextNode(hand[contador].name);
-                boton.appendChild(t);
-                document.body.appendChild(boton);            	
+                if(hand[contador].name != "Simple Card"){
+                	if(hand[contador].name == "Take 2" || hand[contador].name == "Jump" || hand[contador].name == "Reverse" ){
+                		var t = document.createTextNode(hand[contador].name + " " + hand[contador].color);
+                        boton.appendChild(t);
+                        document.body.appendChild(boton);   
+                	}
+                	else{//Es toma 4 o cambia color
+                		var t = document.createTextNode(hand[contador].name);
+                        boton.appendChild(t);
+                        document.body.appendChild(boton);   
+                	}         
+                }
+                else{//Es simple card
+                	var t = document.createTextNode(hand[contador].color + " " + hand[contador].number);
+                    boton.appendChild(t);
+                    document.body.appendChild(boton);
+                	
+                }            	
             }
             
             alert("A jugar "+content.name);         
