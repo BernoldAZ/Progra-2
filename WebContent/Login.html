@@ -4,20 +4,58 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
-<body>
 
+<style rel="stylesheet" type="text/css">
+    .main {
+        padding: 50px;
+        color: #FFFFFF;
+        font-size: 0.9em;
+        font-family: "Arial";
+        margin: auto;
+        fill: white;
+        width: 30%;
+    }
+    .title {
+        font-size: 35px;
+        font-family: "Arial";
+    }
+    .small_margin {
+        text-align: right;
+        padding: 20px;
+    }
+    .img{
+        padding: 20px;
+    }
+    input[type=text] {
+        border: 2px;
+        padding: 7px 10px;
+        border-radius: 4px;
+        font-size: 18px;
+    }
+
+
+</style>
+
+<body bgcolor="black">
+    
+    <div class="main">
 	<form method="post" action="LoginCheck">
-		<table>
-			<tr>
-				<td>User Name</td>
-				<td><input type="text" name="pName"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Go in"></td>
-			</tr>
-		</table>
+        <table>
+            <tr>
+                <td><img src="title_img.png" width=128 class="img"></td>
+                <td><div class="title">Login</div></td>
+            </tr>
+            
+            <tr>
+                <td><div class="small_margin">Nickname:</div></td>
+                <td><input type="text" name="pName"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Go in"></td>
+            </tr>
+        </table>
 	</form>
-
+    </div>
 </body>
 </html>
